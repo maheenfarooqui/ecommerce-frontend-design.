@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Primary Colors */
+  --color-brand-primary: #0D6EFD;
+  --color-brand-light: #8CB7F5;
+  
+  /* Text & Neutral Colors from Figma */
+  --color-dark-main: #1C1C1C;
+  --color-gray-muted: #8B96A5;
+  --color-bg-gray: #F7FAFC;
+  --color-border-gray: #E3E8EE;
+  
+  /* Component Specific */
+  --color-search-border: #0D6EFD;
+}
