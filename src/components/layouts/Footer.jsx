@@ -9,7 +9,8 @@ export default function Footer() {
     {
       name: 'Facebook',
       href: '#',
-      svg: <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-[.443] 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+      // ⚡ FIX: l-[.443] ko badal kar standard valid path numbers kar diye hain taake error na aaye
+      svg: <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
     },
     {
       name: 'Twitter',
@@ -56,10 +57,9 @@ export default function Footer() {
     <footer className="w-full bg-white border-t border-border-gray">
       {/* TOP FOOTER SECTION */}
       <Container className="py-10">
-        {/* 🔥 FIX: lg:grid-cols-6 ko badal kar lg:grid-cols-7 kiya aur gap tight kiya */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4">
           
-          {/* Column 1: Logo, Info and Social Media (Takes up 2 columns) */}
+          {/* Column 1: Logo, Info and Social Media */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <Logo/>
             <p 
@@ -83,7 +83,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Columns 2-5: Dynamic Link Groups (Har group ab exact 1 column lega) */}
+          {/* Columns 2-5: Dynamic Link Groups */}
           {footerLinks.map((group, idx) => (
             <div key={idx} className="flex flex-col gap-3 min-w-0">
               <h3 className="text-[16px] font-medium text-dark-main whitespace-nowrap">
@@ -104,7 +104,7 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Column 6: App Downloads (Ab isse poori 7th column ki space milegi) */}
+          {/* Column 6: App Downloads */}
           <div className="flex flex-col gap-3 min-w-0">
             <h3 className="text-[16px] font-medium text-dark-main whitespace-nowrap">
               Get app

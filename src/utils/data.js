@@ -23,6 +23,22 @@ import walletImg from '../assets/wallet.png';
 import bagImg from '../assets/bag.png';
 import shortsImg from '../assets/shorts.png';
 
+import hubImg from '../assets/bg1.png';
+import customImg from '../assets/bg2.png';
+import shippingImg from '../assets/bg3.png';
+import monitorImg from '../assets/bg4.png';
+
+// --- Flags Images Imports ---
+import aeFlag from '../assets/ae.png';
+import auFlag from '../assets/au.png';
+import usFlag from '../assets/us.png';
+import ruFlag from '../assets/ru.png';
+import itFlag from '../assets/it.png';
+import dkFlag from '../assets/dk.png';
+import frFlag from '../assets/fr.png';
+import cnFlag from '../assets/cn.png';
+import gbFlag from '../assets/gb.png';
+
 
 
 
@@ -78,4 +94,26 @@ export const quantityTypes = [
   { id: 2, label: 'Liters', value: 'liters' },
   { id: 3, label: 'Kg', value: 'kg' },
   { id: 4, label: 'Boxes', value: 'boxes' },
+];
+
+
+export const servicesData = [
+  { id: 1, title: 'Source from Industry Hubs', img: hubImg, iconType: 'search' },
+  { id: 2, title: 'Customize Your Products', img: customImg, iconType: 'box' },
+  { id: 3, title: 'Fast, reliable shipping by ocean or air', img: shippingImg, iconType: 'send' },
+  { id: 4, title: 'Product monitoring and inspection', img: monitorImg, iconType: 'shield' },
+];
+
+// --- Suppliers by Region Data Export ---
+export const regionsData = [
+  { id: 1, name: 'Arabic Emirates', site: 'shopname.ae', flag: aeFlag },
+  { id: 2, name: 'Australia', site: 'shopname.com.au', flag: auFlag },
+  { id: 3, name: 'United States', site: 'shopname.com', flag: usFlag },
+  { id: 4, name: 'Russia', site: 'shopname.ru', flag: ruFlag },
+  { id: 5, name: 'Italy', site: 'shopname.it', flag: itFlag },
+  { id: 6, name: 'Denmark', site: 'denmark.com.dk', flag: dkFlag },
+  { id: 7, name: 'France', site: 'shopname.com.fr', flag: frFlag },
+  { id: 8, name: 'Arabic Emirates', site: 'shopname.ae', flag: aeFlag }, // Figma mein repeat hy
+  { id: 9, name: 'China', site: 'shopname.com.cn', flag: cnFlag },
+  { id: 10, name: 'Great Britain', site: 'shopname.co.uk', flag: gbFlag },
 ];

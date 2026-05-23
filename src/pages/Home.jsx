@@ -5,6 +5,9 @@ import DealsSection from "../components/section/DealsSection";
 import ProductGridSection from "../components/section/ProductGridSection";
 import InquirySection from "../components/section/InquirySection";
 import RecommendedSection from "../components/section/RecommendedSection";
+import ServicesSection from "../components/section/ServicesSection";
+import RegionSuppliersSection from "../components/section/RegionSuppliersSection";
+import NewsletterSubscription from "../components/section/NewsletterSubscription";
 import { homeOutdoorData, electronicsData } from "../utils/data";
 import homeBanner from '../assets/1st.png';
 import electroBanner from '../assets/second.png';
@@ -29,6 +32,9 @@ export default function HomePage() {
       />
       <InquirySection />
       <RecommendedSection />
+      <ServicesSection />
+      <RegionSuppliersSection />
+      <NewsletterSubscription />
         <Footer />
        
     </div>
