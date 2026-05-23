@@ -55,3 +55,10 @@ export const electronicsData = [
   { id: 7, title: 'Smartphones', price: '19', img: tabletImg },
   { id: 8, title: 'Electric kettle', price: '240', img: phoneImg },
 ];
+// --- Inquiry Form Select Options ---
+export const quantityTypes = [
+  { id: 1, label: 'Pcs', value: 'pcs' },
+  { id: 2, label: 'Liters', value: 'liters' },
+  { id: 3, label: 'Kg', value: 'kg' },
+  { id: 4, label: 'Boxes', value: 'boxes' },
+];

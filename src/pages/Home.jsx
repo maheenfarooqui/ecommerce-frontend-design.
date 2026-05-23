@@ -3,8 +3,9 @@ import Footer from "../components/layouts/Footer";
 import HeroSection from "../components/section/HeroSection";
 import DealsSection from "../components/section/DealsSection";
 import ProductGridSection from "../components/section/ProductGridSection";
+import InquirySection from "../components/section/InquirySection";
 import { homeOutdoorData, electronicsData } from "../utils/data";
-import homeBanner from '../assets/1st.png';      // Ya jo bhi aapka exact relative path hy
+import homeBanner from '../assets/1st.png';
 import electroBanner from '../assets/second.png';
 // src/pages/HomePage.jsx
 export default function HomePage() {
@@ -25,6 +26,7 @@ export default function HomePage() {
         bannerImg={electroBanner} 
         products={electronicsData}
       />
+      <InquirySection />
         <Footer />
        
     </div>
