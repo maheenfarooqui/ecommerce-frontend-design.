@@ -1,5 +1,4 @@
-import Navbar from "../components/layouts/Navbar";
-import Footer from "../components/layouts/Footer";
+
 import HeroSection from "../components/section/HeroSection";
 import DealsSection from "../components/section/DealsSection";
 import ProductGridSection from "../components/section/ProductGridSection";
@@ -15,7 +14,7 @@ import electroBanner from '../assets/second.png';
 export default function HomePage() {
   return (
     <div className="w-full bg-bg-gray min-h-screen">
-        <Navbar />
+  
          <HeroSection />
           <DealsSection />
  <ProductGridSection 
@@ -35,7 +34,7 @@ export default function HomePage() {
       <ServicesSection />
       <RegionSuppliersSection />
       <NewsletterSubscription />
-        <Footer />
+
        
     </div>
   );

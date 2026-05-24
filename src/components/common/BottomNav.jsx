@@ -1,12 +1,14 @@
 import { Menu, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 
 export default function BottomNavbar() {
+  // ⚡ DRY Approach: Array ko objects mein badla taake har link ka apna path ho
   const leftLinks = [
-    'Hot offers',
-    'Gift boxes',
-    'Projects',
-    'Menu item',
+    { name: 'Hot offers', path: '#' },
+    { name: 'Gift boxes', path: '#' },
+    { name: 'Projects', path: '#' },
+    { name: 'Menu item', path: '/products' }, // 👈 Is link par listing page ka path set kar diya
   ];
 
   return (
@@ -27,13 +29,14 @@ export default function BottomNavbar() {
           <ul className="flex items-center gap-6 m-0 p-0 list-none">
             {leftLinks.map((link, idx) => (
               <li key={idx}>
-                <a
-                  href="#"
+                {/* 🔗 HTML <a> tag ko React Router ke <Link> se badal diya */}
+                <Link
+                  to={link.path}
                   className="text-[16px] font-medium hover:text-brand-primary transition-colors no-underline"
                   style={{ color: '#1C1C1C' }}
                 >
-                  {link}
-                </a>
+                  {link.name}
+                </Link>
               </li>
             ))}
             
@@ -70,12 +73,14 @@ export default function BottomNavbar() {
         </div>
 
       </Container>
+      
+      {/* Mobile Responsive Tabs View */}
       <div className="w-full bg-white py-3 px-4 overflow-x-auto flex items-center gap-2.5 block lg:hidden" style={{ scrollbarWidth: 'none' }}>
         {['All category', 'Gadgets', 'Clothes', 'Accessories'].map((tab, idx) => (
           <button
             key={idx}
             className="px-3 py-1.5 bg-[#EFF2F4] text-[15px] font-medium rounded-md whitespace-nowrap border-none outline-none active:bg-gray-200 transition-colors"
-            style={{ color: '#0D6EFD' }} // Figma primary blue color
+            style={{ color: '#0D6EFD' }}
           >
             {tab}
           </button>

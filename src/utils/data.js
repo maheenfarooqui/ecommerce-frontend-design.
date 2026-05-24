@@ -117,3 +117,56 @@ export const regionsData = [
   { id: 9, name: 'China', site: 'shopname.com.cn', flag: cnFlag },
   { id: 10, name: 'Great Britain', site: 'shopname.co.uk', flag: gbFlag },
 ];
+
+
+
+export const listingProductsData = [
+  {
+    id: 1,
+    title: 'Canon Cmera EOS 2000, Black 100x zoom',
+    price: '998.00',
+    oldPrice: '1128.00',
+    rating: 4.5,
+    orders: 154,
+    img: phoneImg, // Apni imported image variables lagao yahan
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
+  },
+  {
+    id: 2,
+    title: 'GoPro HERO6 4K Action Camera - Black Edition',
+    price: '795.00',
+    rating: 4.8,
+    orders: 89,
+    img: canonImg,
+    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.'
+  },
+  {
+    id: 3,
+    title: 'Smart watches silver color modern design screen',
+    price: '19.50',
+    oldPrice: '35.00',
+    rating: 4.0,
+    orders: 42,
+    img: watchImg,
+    description: 'Great smartwatch with dynamic heart rate monitoring, push notifications, and customizable watch faces built for performance.'
+  },
+  {
+    id: 4,
+    title: 'Laptops & PC high performance 16GB RAM 512GB SSD',
+    price: '340.00',
+    rating: 4.2,
+    orders: 120,
+    img: laptopImg,
+    description: 'High-end developer laptop with premium liquid cooling system, ultra responsive keyboard, and aluminum finish design block.'
+  },
+  {
+    id: 5,
+    title: 'Headphones gaming setup with high definition mic',
+    price: '89.00',
+    oldPrice: '120.00',
+    rating: 4.7,
+    orders: 210,
+    img: headsetImg,
+    description: 'Immersive sound engineering with deep bass technology and memory foam earcups designed for prolonged professional studio use.'
+  }
+];
