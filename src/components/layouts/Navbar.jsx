@@ -1,4 +1,3 @@
-
 // import Container from '../common/Container';
 // import { useState } from 'react';
 // import { User, MessageSquare, Heart, X,ShoppingCart, ChevronDown, Menu, Search } from 'lucide-react';
@@ -8,15 +7,15 @@
 // //     // Figma Border Color Used Here
 // //     <header className="w-full bg-white border-b border-border-gray">
 // //       <Container className="flex h-20 items-center justify-between gap-4">
-        
+
 // //         {/* 1. LOGO SECTION */}
 // //         <div className="flex items-center gap-2.5 cursor-pointer shrink-0">
 // //           {/* Brand Primary Background */}
 // //           <div className="w-[44px] h-[44px] bg-brand-primary rounded-xl flex items-center justify-center shadow-sm overflow-hidden">
-// //             <img 
-// //               src={brandLogo} 
-// //               alt="Brand Logo" 
-// //               className="w-[22px] h-[22px] object-contain" 
+// //             <img
+// //               src={brandLogo}
+// //               alt="Brand Logo"
+// //               className="w-[22px] h-[22px] object-contain"
 // //             />
 // //           </div>
 // //           {/* Brand Light Text */}
@@ -33,7 +32,7 @@
 // //             placeholder="Search"
 // //             className="w-full px-4 text-[16px] text-dark-main placeholder-gray-400 focus:outline-none"
 // //           />
-          
+
 // //           <div className="flex items-center gap-2 px-4 border-l border-border-gray bg-white cursor-pointer select-none shrink-0 hover:bg-gray-50">
 // //             <span className="text-[16px] text-dark-main">All category</span>
 // //             <ChevronDown className="w-4 h-4 text-gray-500" />
@@ -82,10 +81,10 @@
 
 //   return (
 //     <header className="w-full bg-white border-b border-border-gray sticky top-0 z-50">
-      
+
 //       {/* 1. MAIN DESKTOP & MOBILE BAR */}
 //       <Container className="h-20 flex items-center justify-between gap-4">
-        
+
 //         {/* LEFT: Menu Button (Mobile Only) + Logo */}
 //         <div className="flex items-center gap-3">
 //           {/* Hamburger Menu (Mobile Only) */}
@@ -162,7 +161,6 @@
 //         </div>
 //       </div>
 
-
 //       {/* 2. MOBILE OVERLAY DRAWER (Aside Component) */}
 //       <aside
 //         className={`fixed inset-0 z-50 flex h-screen flex-col overflow-hidden bg-white px-5 py-6 transition-all duration-300 lg:hidden ${
@@ -173,7 +171,7 @@
 //         {/* Drawer Header */}
 //         <div className="flex items-center justify-between gap-4 border-b border-border-gray pb-4">
 //          <Logo variant="dark" />
-          
+
 //           {/* Close Button */}
 //           <button
 //             className="grid h-10 w-10 place-items-center rounded-full border border-border-gray text-dark-main transition hover:bg-gray-50"
@@ -215,44 +213,64 @@
 //     </header>
 //   );
 // }
-import { useState } from 'react';
-import { User, MessageSquare, Heart, ShoppingCart, ChevronDown, Menu, X, Search, Home, List, Globe, Headphones, Info } from 'lucide-react';
-import Logo from '../common/Logo';
-import Container from '../common/Container';
-import BottomNavbar from '../common/BottomNav';
+import { useState } from "react";
+import { useCart } from '../../context/CartContext';
+import {
+  User,
+  MessageSquare,
+  Heart,
+  ShoppingCart,
+  ChevronDown,
+  Menu,
+  X,
+  Search,
+  Home,
+  List,
+  Globe,
+  Headphones,
+  Info,
+} from "lucide-react";
+// ⚡ Link import kiya taake cart page par redirect ho sakein
+import { Link } from "react-router-dom";
+import Logo from "../common/Logo";
+import Container from "../common/Container";
+import BottomNavbar from "../common/BottomNav";
 
 export default function Navbar() {
+  const { cartItems } = useCart();
+  const totalItemsInCart = cartItems.reduce(
+    (acc, item) => acc + item.quantity,
+    0,
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   // Icon ke sath wale main menu items
   const menuItems = [
-    { label: 'Home', icon: Home, href: '#' },
-    { label: 'Categories', icon: List, href: '#' },
-    { label: 'Favorites', icon: Heart, href: '#' },
-    { label: 'My orders', icon: ShoppingCart, href: '#' },
-    { label: 'English | USD', icon: Globe, href: '#' },
-    { label: 'Contact us', icon: Headphones, href: '#' },
-    { label: 'About', icon: Info, href: '#' },
+    { label: "Home", icon: Home, href: "/" },
+    { label: "Categories", icon: List, href: "#" },
+    { label: "Favorites", icon: Heart, href: "#" },
+    { label: "My orders", icon: ShoppingCart, href: "#" },
+    { label: "English | USD", icon: Globe, href: "#" },
+    { label: "Contact us", icon: Headphones, href: "#" },
+    { label: "About", icon: Info, href: "#" },
   ];
 
   // Niche wale plain text links
   const subLinks = [
-    { label: 'User agreement', href: '#' },
-    { label: 'Partnership', href: '#' },
-    { label: 'Privacy policy', href: '#' },
+    { label: "User agreement", href: "#" },
+    { label: "Partnership", href: "#" },
+    { label: "Privacy policy", href: "#" },
   ];
 
   return (
-    <header className="w-full bg-white border-b border-border-gray sticky top-0 z-50">
-      
+    <header className="w-full bg-white border-b border-[#DEE2E7] sticky top-0 z-50 select-none">
       {/* 1. MAIN DESKTOP & MOBILE BAR */}
       <Container className="h-20 flex items-center justify-between gap-4">
-        
         {/* LEFT: Menu Button (Mobile Only) + Logo */}
         <div className="flex items-center gap-3">
           <button
             type="button"
-            className="lg:hidden text-dark-main p-1 cursor-pointer"
+            className="lg:hidden text-[#1C1C1C] p-1 cursor-pointer"
             onClick={() => setIsOpen(true)}
           >
             <Menu className="w-6 h-6" />
@@ -261,20 +279,20 @@ export default function Navbar() {
         </div>
 
         {/* CENTER: Search Bar (Desktop Only) */}
-        <div 
-          className="hidden lg:flex border-2 border-brand-primary rounded-lg overflow-hidden bg-white"
-          style={{ height: '44px', width: '100%', maxWidth: '665px' }}
+        <div
+          className="hidden lg:flex border-2 border-[#0D6EFD] rounded-lg overflow-hidden bg-white"
+          style={{ height: "44px", width: "100%", maxWidth: "665px" }}
         >
           <input
             type="text"
             placeholder="Search"
-            className="w-full px-4 text-[16px] text-dark-main placeholder-gray-400 focus:outline-none"
+            className="w-full px-4 text-[16px] text-[#1C1C1C] placeholder-gray-400 focus:outline-none"
           />
-          <div className="flex items-center gap-2 px-4 border-l border-border-gray bg-white cursor-pointer select-none shrink-0 hover:bg-gray-50">
-            <span className="text-[16px] text-dark-main">All category</span>
+          <div className="flex items-center gap-2 px-4 border-l border-gray-200 bg-white cursor-pointer select-none shrink-0 hover:bg-gray-50">
+            <span className="text-[16px] text-[#1C1C1C]">All category</span>
             <ChevronDown className="w-4 h-4 text-gray-500" />
           </div>
-          <button className="bg-brand-primary hover:bg-blue-700 text-white font-medium text-[16px] px-6 h-full transition-colors shrink-0">
+          <button className="bg-[#0D6EFD] hover:bg-blue-700 text-white font-medium text-[16px] px-6 h-full transition-colors shrink-0 border-none cursor-pointer">
             Search
           </button>
         </div>
@@ -282,87 +300,113 @@ export default function Navbar() {
         {/* RIGHT: Actions (Desktop Only) */}
         <div className="hidden lg:flex items-center gap-7 shrink-0">
           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-            <User className="w-5 h-5 text-gray-muted group-hover:text-brand-primary transition-colors" />
-            <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">Profile</span>
+            <User className="w-5 h-5 text-gray-400 group-hover:text-[#0D6EFD] transition-colors" />
+            <span className="text-[12px] text-gray-400 group-hover:text-[#1C1C1C] transition-colors">
+              Profile
+            </span>
           </div>
           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-            <MessageSquare className="w-5 h-5 text-gray-muted group-hover:text-brand-primary transition-colors" />
-            <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">Message</span>
+            <MessageSquare className="w-5 h-5 text-gray-400 group-hover:text-[#0D6EFD] transition-colors" />
+            <span className="text-[12px] text-gray-400 group-hover:text-[#1C1C1C] transition-colors">
+              Message
+            </span>
           </div>
           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-            <Heart className="w-5 h-5 text-gray-muted group-hover:text-brand-primary transition-colors" />
-            <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">Orders</span>
+            <Heart className="w-5 h-5 text-gray-400 group-hover:text-[#0D6EFD] transition-colors" />
+            <span className="text-[12px] text-gray-400 group-hover:text-[#1C1C1C] transition-colors">
+              Orders
+            </span>
           </div>
-          <div className="flex flex-col items-center gap-1 cursor-pointer group">
-            <ShoppingCart className="w-5 h-5 text-gray-muted group-hover:text-brand-primary transition-colors" />
-            <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">My cart</span>
-          </div>
+
+          {/* 🛒 DESKTOP CART ICON WITH LIVE RED BADGE ELEMENT INDICATOR */}
+          <Link
+            to="/cart"
+            className="flex flex-col items-center gap-1 cursor-pointer group no-underline relative"
+          >
+            <div className="relative">
+              <ShoppingCart className="w-5 h-5 text-gray-400 group-hover:text-[#0D6EFD] transition-colors" />
+              {/* Counter Badge: Agar cart me items hon tabhi dikhega */}
+              {totalItemsInCart > 0 && (
+                <span className="absolute -top-2.5 -right-2.5 bg-red-500 text-white text-[10px] font-bold min-w-[16px] h-4 rounded-full flex items-center justify-center px-1 border border-white box-border animate-scaleIn">
+                  {totalItemsInCart}
+                </span>
+              )}
+            </div>
+            <span className="text-[12px] text-gray-400 group-hover:text-[#1C1C1C] transition-colors">
+              My cart
+            </span>
+          </Link>
         </div>
 
-        {/* Mobile Quick Action Icons */}
+        {/* MOBILE QUICK ACTION ICONS */}
         <div className="flex items-center gap-4 lg:hidden">
-          <button className="text-dark-main p-1">
+          {/* 🛒 MOBILE CART ICON WITH LIVE BADGE CONTROL */}
+          <Link to="/cart" className="text-[#1C1C1C] p-1 relative block">
             <ShoppingCart className="w-6 h-6" />
-          </button>
-          <button className="text-dark-main p-1">
+            {totalItemsInCart > 0 && (
+              <span className="absolute top-0 right-0 bg-red-500 text-white text-[9px] font-bold min-w-[15px] h-3.5 rounded-full flex items-center justify-center px-1 border border-white box-border">
+                {totalItemsInCart}
+              </span>
+            )}
+          </Link>
+          <button className="text-[#1C1C1C] p-1 bg-transparent border-none">
             <User className="w-6 h-6" />
           </button>
         </div>
-
       </Container>
 
       {/* MOBILE LOWER SEARCH BAR */}
       <div className="block lg:hidden px-4 pb-3 bg-white">
-        <div 
-          className="w-full flex items-center bg-bg-gray border border-border-gray rounded-lg overflow-hidden px-3"
-          style={{ height: '40px' }}
+        <div
+          className="w-full flex items-center bg-[#F7FAFC] border border-gray-200 rounded-lg overflow-hidden px-3"
+          style={{ height: "40px" }}
         >
           <Search className="w-5 h-5 text-gray-400 shrink-0 mr-2" />
           <input
             type="text"
             placeholder="Search"
-            className="w-full bg-transparent text-[14px] text-dark-main placeholder-gray-400 focus:outline-none"
+            className="w-full bg-transparent text-[14px] text-[#1C1C1C] placeholder-gray-400 focus:outline-none"
           />
         </div>
       </div>
 
-
-      {/* 2. FIXED MOBILE OVERLAY DRAWER (Figma Match) */}
+      {/* 2. FIXED MOBILE OVERLAY DRAWER */}
       <aside
         className={`fixed inset-0 z-50 flex h-screen flex-col overflow-hidden bg-white transition-all duration-300 lg:hidden ${
-          isOpen ? 'pointer-events-auto translate-x-0 opacity-100' : 'pointer-events-none -translate-x-full opacity-0'
+          isOpen
+            ? "pointer-events-auto translate-x-0 opacity-100"
+            : "pointer-events-none -translate-x-full opacity-0"
         }`}
         aria-label="Mobile navigation"
       >
-        
-        {/* Drawer Header (Light Grey Profile Box) */}
-        <div className="bg-bg-gray p-5 border-b border-border-gray relative">
-          {/* Close X Button top-right */}
+        {/* Drawer Header */}
+        <div className="bg-[#F7FAFC] p-5 border-b border-gray-200 relative">
           <button
-            className="absolute top-4 right-4 text-gray-400 hover:text-dark-main cursor-pointer"
+            className="absolute top-4 right-4 text-gray-400 hover:text-[#1C1C1C] cursor-pointer bg-transparent border-none"
             type="button"
             onClick={() => setIsOpen(false)}
           >
             <X className="w-6 h-6" />
           </button>
 
-          {/* User Icon & Sign in Area */}
           <div className="flex flex-col gap-2 mt-2">
-            <div className="w-[44] h-[44] bg-[#DEE2E7] rounded-full flex items-center justify-center text-gray-600">
+            <div className="w-11 h-11 bg-[#DEE2E7] rounded-full flex items-center justify-center text-gray-600">
               <User className="w-6 h-6" />
             </div>
-            <div className="text-[16px] text-dark-main font-medium">
-              <span className="cursor-pointer hover:text-brand-primary">Sign in</span>
+            <div className="text-[16px] text-[#1C1C1C] font-medium">
+              <span className="cursor-pointer hover:text-[#0D6EFD]">
+                Sign in
+              </span>
               <span className="text-gray-400 mx-1.5">|</span>
-              <span className="cursor-pointer hover:text-brand-primary">Register</span>
+              <span className="cursor-pointer hover:text-[#0D6EFD]">
+                Register
+              </span>
             </div>
           </div>
         </div>
 
         {/* Drawer Main Links Scroll Area */}
         <div className="flex-1 overflow-y-auto px-5 py-4">
-          
-          {/* Main List items with Icons */}
           <nav className="flex flex-col" aria-label="Mobile primary navigation">
             {menuItems.map((item, idx) => {
               const IconComponent = item.icon;
@@ -370,12 +414,17 @@ export default function Navbar() {
                 <a
                   key={idx}
                   href={item.href}
-                  className={`flex items-center gap-4 py-3.5 text-[16px] text-dark-main hover:bg-gray-50 active:bg-gray-100 transition-colors ${
-                    item.label === 'English | USD' ? 'border-t border-slate-100 mt-2 pt-5' : ''
+                  className={`flex items-center gap-4 py-3.5 text-[16px] text-[#1C1C1C] no-underline hover:bg-gray-50 active:bg-gray-100 transition-colors ${
+                    item.label === "English | USD"
+                      ? "border-t border-slate-100 mt-2 pt-5"
+                      : ""
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  <IconComponent className="w-5 h-5 shrink-0" style={{ color: '#8B96A5' }}/>
+                  <IconComponent
+                    className="w-5 h-5 shrink-0"
+                    style={{ color: "#8B96A5" }}
+                  />
                   <span className="font-normal">{item.label}</span>
                 </a>
               );
@@ -388,20 +437,19 @@ export default function Navbar() {
               <a
                 key={idx}
                 href={sub.href}
-                className="text-[16px] text-dark-main font-normal hover:text-brand-primary transition-colors"
+                className="text-[16px] text-[#1C1C1C] no-underline font-normal hover:text-[#0D6EFD] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {sub.label}
               </a>
             ))}
           </div>
-
         </div>
       </aside>
+
       <Container>
         <BottomNavbar />
       </Container>
-
     </header>
   );
 }
