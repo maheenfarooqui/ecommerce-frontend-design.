@@ -16,11 +16,11 @@ const renderIcon = (type) => {
 
 export default function ServicesSection() {
   return (
-    <div className="w-full bg-[#F7FAFC] pb-10">
+    <div className="w-full bg-bg-gray pb-10">
       <Container>
         
         {/* Section Title */}
-        <h2 className="text-[24px] font-bold text-[#1C1C1C] m-0 mb-6">
+        <h2 className="text-[24px] font-bold text-dark-main m-0 mb-6">
           Our extra services
         </h2>
 
@@ -33,7 +33,7 @@ export default function ServicesSection() {
             >
               
               {/* Image Block */}
-              <div className="w-full h-[120px] bg-gray-100 overflow-hidden relative">
+              <div className="w-full h-30 bg-gray-100 overflow-hidden relative">
                 <img 
                   src={service.img} 
                   alt={service.title} 
@@ -43,13 +43,13 @@ export default function ServicesSection() {
               </div>
 
               {/* Blue Circle Icon Badge */}
-              <div className="absolute top-[96px] right-5 w-11 h-11 rounded-full bg-[#D1E7FF] border-[2px] border-white flex items-center justify-center shadow-sm z-10">
+              <div className="absolute top-24right-5 w-11 h-11 rounded-full bg-[#D1E7FF] border-2 border-white flex items-center justify-center shadow-sm z-10">
                 {renderIcon(service.iconType)}
               </div>
 
               {/* Card Text */}
               <div className="p-5 pt-6 max-w-[85%]">
-                <p className="text-[16px] font-medium text-[#1C1C1C] m-0 leading-snug">
+                <p className="text-[16px] font-medium text-dark-main m-0 leading-snug">
                   {service.title}
                 </p>
               </div>

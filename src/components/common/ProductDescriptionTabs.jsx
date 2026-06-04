@@ -32,13 +32,13 @@ export default function ProductDescriptionTabs() {
       </p>
 
       {/* Specifications Parameter Table Block Layout */}
-      <div className="w-full max-w-[560px] border border-gray-200 rounded-lg overflow-hidden bg-white">
+      <div className="w-full max-w-140 border border-gray-200 rounded-lg overflow-hidden bg-white">
         {technicalSpecs.map((spec, i) => (
           <div key={i} className="flex border-b border-gray-200 last:border-none text-[15px]">
-            <div className="w-[180px] bg-[#EFF2F4] text-[#505050] px-4 py-2.5 font-normal box-border shrink-0 border-r border-gray-200">
+            <div className="w-45 bg-[#EFF2F4] text-[#505050] px-4 py-2.5 font-normal box-border shrink-0 border-r border-gray-200">
               {spec.label}
             </div>
-            <div className="flex-1 text-[#1C1C1C] px-4 py-2.5 font-normal box-border">
+            <div className="flex-1 text-dark-main px-4 py-2.5 font-normal box-border">
               {spec.value}
             </div>
           </div>
@@ -58,10 +58,10 @@ export default function ProductDescriptionTabs() {
   );
 
   return (
-    <div className="w-full flex flex-col lg:flex-row gap-6 items-start mt-6">
+    <div className="w-full flex flex-col lg:flex-row gap-6 items-start mt-6 mb-10">
       
       {/* 📑 LEFT BLOCK: Main Intelligent Navigational Tabs Box Panel */}
-      <div className="flex-1 border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+      <div className="flex-1 border border-gray-200 rounded-sm bg-white overflow-hidden shadow-sm">
         
         {/* Navigation Action Header Strip Bar */}
         <div className="w-full bg-white border-b border-gray-200 flex px-4 gap-2 box-border">
@@ -81,7 +81,7 @@ export default function ProductDescriptionTabs() {
         </div>
 
         {/* Core Tab Dynamic Window Viewer Body panel */}
-        <div className="p-5 lg:p-6 box-border min-h-[260px]">
+        <div className="p-5 lg:p-6 box-border min-h-65">
           {activeTab === 'Description' && renderDescriptionContent()}
           {activeTab === 'Reviews' && <div className="text-gray-400 text-[15px]">Customer feedback metrics overview setup pending...</div>}
           {activeTab === 'Shipping' && <div className="text-gray-400 text-[15px]">Logistics distribution & custom tracking details...</div>}

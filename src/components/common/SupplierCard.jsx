@@ -2,7 +2,7 @@ import { ShieldCheck, Globe } from 'lucide-react';
 
 export default function SupplierCard() {
   return (
-    <div className="w-full lg:w-[280px] border border-gray-200 rounded-xl bg-white p-5 flex flex-col gap-4 shadow-sm">
+    <div className="w-full lg:w-70 border border-gray-200 rounded-xl bg-white p-5 flex flex-col gap-4 shadow-sm">
       
       {/* Header Block Row */}
       <div className="flex gap-3 items-center">
@@ -10,7 +10,7 @@ export default function SupplierCard() {
           R
         </div>
         <div className="flex flex-col">
-          <span className="text-[16px] font-medium text-[#1C1C1C] leading-tight">Supplier</span>
+          <span className="text-[16px] font-medium text-dark-main leading-tight">Supplier</span>
           <span className="text-[14px] text-gray-500">Guanjoi Trading LLC</span>
         </div>
       </div>

@@ -1,8 +1,8 @@
 export default function DiscountBanner() {
   return (
-    <div className="w-full rounded-xl relative overflow-hidden bg-gradient-to-r from-[#237CFF] to-[#005ADE] px-6 lg:px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-sm text-left">
+    <div className="w-full rounded-sm relative overflow-hidden bg-linear-to-r from-[#237CFF] to-[#005ADE] px-6 lg:px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-sm text-left">
       
-      {/* 🎨 Custom CSS Backdrop Overlay Angle Effect (Figma standard math matching) */}
+    
       <div 
         className="absolute top-0 right-0 bottom-0 w-[40%] bg-[#005ADE] hidden sm:block opacity-60"
         style={{ clipPath: 'polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
