@@ -3,7 +3,7 @@ import Logo from '../common/Logo';
 import Container from '../common/Container';
 import appStoreBtn from '../../assets/apple.png';
 import googlePlayBtn from '../../assets/google.png';
-
+import Flag from '../../assets/us.png';
 export default function Footer() {
   const socialIcons = [
     {
@@ -144,7 +144,11 @@ export default function Footer() {
 
           {/* Language Selector Dropdown */}
           <div className="flex items-center gap-2 cursor-pointer select-none hover:text-dark-main transition-colors">
-            <span className="text-[18px]">🇺🇸</span>
+    <img
+              src={Flag}
+              alt="Active Flag"
+              className="w-5 h-3.5 object-cover shrink-0 shadow-sm"
+            />
             <span>English</span>
             <ChevronUp className="w-4 h-4 text-gray-500" />
           </div>
