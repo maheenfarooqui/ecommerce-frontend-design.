@@ -1,220 +1,5 @@
-// import Container from '../common/Container';
-// import { useState } from 'react';
-// import { User, MessageSquare, Heart, X,ShoppingCart, ChevronDown, Menu, Search } from 'lucide-react';
-// import Logo from '../common/Logo';
-// // export default function Navbar() {
-// //   return (
-// //     // Figma Border Color Used Here
-// //     <header className="w-full bg-white border-b border-border-gray">
-// //       <Container className="flex h-20 items-center justify-between gap-4">
-
-// //         {/* 1. LOGO SECTION */}
-// //         <div className="flex items-center gap-2.5 cursor-pointer shrink-0">
-// //           {/* Brand Primary Background */}
-// //           <div className="w-[44px] h-[44px] bg-brand-primary rounded-xl flex items-center justify-center shadow-sm overflow-hidden">
-// //             <img
-// //               src={brandLogo}
-// //               alt="Brand Logo"
-// //               className="w-[22px] h-[22px] object-contain"
-// //             />
-// //           </div>
-// //           {/* Brand Light Text */}
-// //           <span className="text-[24px] font-bold text-brand-light tracking-tight">
-// //             Brand
-// //           </span>
-// //         </div>
-
-// //         {/* 2. CENTER SEARCH BAR */}
-// //         {/* Brand Primary Border */}
-// //         <div className="flex flex-1 max-w-[665px] h-[44px] border-2 border-brand-primary rounded-lg overflow-hidden bg-white">
-// //           <input
-// //             type="text"
-// //             placeholder="Search"
-// //             className="w-full px-4 text-[16px] text-dark-main placeholder-gray-400 focus:outline-none"
-// //           />
-
-// //           <div className="flex items-center gap-2 px-4 border-l border-border-gray bg-white cursor-pointer select-none shrink-0 hover:bg-gray-50">
-// //             <span className="text-[16px] text-dark-main">All category</span>
-// //             <ChevronDown className="w-4 h-4 text-gray-500" />
-// //           </div>
-
-// //           {/* Brand Primary Button */}
-// //           <button className="bg-brand-primary hover:bg-blue-700 text-white font-medium text-[16px] px-6 h-full transition-colors shrink-0">
-// //             Search
-// //           </button>
-// //         </div>
-
-// //         {/* 3. RIGHT NAVIGATION ACTIONS */}
-// //         <div className="flex items-center gap-5 sm:gap-7 shrink-0">
-// //           {/* Profile */}
-// //           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-// //             <User className="w-5 h-5 text-gray-300 group-hover:text-brand-primary transition-colors" />
-// //             <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">Profile</span>
-// //           </div>
-
-// //           {/* Message */}
-// //           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-// //             <MessageSquare className="w-5 h-5 text-gray-300 group-hover:text-brand-primary transition-colors" />
-// //             <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">Message</span>
-// //           </div>
-
-// //           {/* Orders */}
-// //           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-// //             <Heart className="w-5 h-5 text-gray-300 group-hover:text-brand-primary transition-colors" />
-// //             <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">Orders</span>
-// //           </div>
-
-// //           {/* My Cart */}
-// //           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-// //             <ShoppingCart className="w-5 h-5 text-gray-300 group-hover:text-brand-primary transition-colors" />
-// //             <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">My cart</span>
-// //           </div>
-// //         </div>
-
-// //       </Container>
-
-// //     </header>
-// //   );
-// // }
-// export default function Navbar() {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <header className="w-full bg-white border-b border-border-gray sticky top-0 z-50">
-
-//       {/* 1. MAIN DESKTOP & MOBILE BAR */}
-//       <Container className="h-20 flex items-center justify-between gap-4">
-
-//         {/* LEFT: Menu Button (Mobile Only) + Logo */}
-//         <div className="flex items-center gap-3">
-//           {/* Hamburger Menu (Mobile Only) */}
-//           <button
-//             type="button"
-//             className="lg:hidden text-dark-main p-1 cursor-pointer"
-//             onClick={() => setIsOpen(true)}
-//           >
-//             <Menu className="w-6 h-6" />
-//           </button>
-
-//           {/* Brand Logo */}
-//           <Logo />
-//         </div>
-
-//         {/* CENTER: Search Bar (Desktop Only) */}
-//         <div className="hidden lg:flex flex-1 max-w-[665] h-[44] border-2 border-brand-primary rounded-lg overflow-hidden bg-white">
-//           <input
-//             type="text"
-//             placeholder="Search"
-//             className="w-full px-4 text-[16px] text-dark-main placeholder-gray-400 focus:outline-none"
-//           />
-//           <div className="flex items-center gap-2 px-4 border-l border-border-gray bg-white cursor-pointer select-none shrink-0 hover:bg-gray-50">
-//             <span className="text-[16px] text-dark-main">All category</span>
-//             <ChevronDown className="w-4 h-4 text-gray-500" />
-//           </div>
-//           <button className="bg-brand-primary hover:bg-blue-700 text-white font-medium text-[16px] px-6 h-full transition-colors shrink-0">
-//             Search
-//           </button>
-//         </div>
-
-//         {/* RIGHT: Actions (Desktop Navigation / Mobile Quick Icons) */}
-//         {/* Desktop View Icons */}
-//         <div className="hidden lg:flex items-center gap-7 shrink-0">
-//           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-//             <User className="w-5 h-5 text-gray-muted group-hover:text-brand-primary transition-colors" />
-//             <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">Profile</span>
-//           </div>
-//           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-//             <MessageSquare className="w-5 h-5 text-gray-muted group-hover:text-brand-primary transition-colors" />
-//             <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">Message</span>
-//           </div>
-//           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-//             <Heart className="w-5 h-5 text-gray-muted group-hover:text-brand-primary transition-colors" />
-//             <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">Orders</span>
-//           </div>
-//           <div className="flex flex-col items-center gap-1 cursor-pointer group">
-//             <ShoppingCart className="w-5 h-5 text-gray-muted group-hover:text-brand-primary transition-colors" />
-//             <span className="text-[12px] text-gray-muted group-hover:text-dark-main transition-colors">My cart</span>
-//           </div>
-//         </div>
-
-//         {/* Mobile View Quick Icons (Cart & Profile - As per your screenshot) */}
-//         <div className="flex items-center gap-4 lg:hidden">
-//           <button className="text-dark-main p-1">
-//             <ShoppingCart className="w-6 h-6" />
-//           </button>
-//           <button className="text-dark-main p-1">
-//             <User className="w-6 h-6" />
-//           </button>
-//         </div>
-
-//       </Container>
-
-//       {/* MOBILE LOWER SEARCH BAR (Only visible on mobile screens, beneath main bar) */}
-//       <div className="block lg:hidden px-4 pb-3 bg-white">
-//         <div className="w-full h-[40] flex items-center bg-bg-gray border border-border-gray rounded-lg overflow-hidden px-3">
-//           <Search className="w-5 h-5 text-gray-400 shrink-0 mr-2" />
-//           <input
-//             type="text"
-//             placeholder="Search"
-//             className="w-full bg-transparent text-[14px] text-dark-main placeholder-gray-400 focus:outline-none"
-//           />
-//         </div>
-//       </div>
-
-//       {/* 2. MOBILE OVERLAY DRAWER (Aside Component) */}
-//       <aside
-//         className={`fixed inset-0 z-50 flex h-screen flex-col overflow-hidden bg-white px-5 py-6 transition-all duration-300 lg:hidden ${
-//           isOpen ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none -translate-y-4 opacity-0'
-//         }`}
-//         aria-label="Mobile navigation"
-//       >
-//         {/* Drawer Header */}
-//         <div className="flex items-center justify-between gap-4 border-b border-border-gray pb-4">
-//          <Logo variant="dark" />
-
-//           {/* Close Button */}
-//           <button
-//             className="grid h-10 w-10 place-items-center rounded-full border border-border-gray text-dark-main transition hover:bg-gray-50"
-//             type="button"
-//             onClick={() => setIsOpen(false)}
-//           >
-//             <X className="w-5 h-5" />
-//           </button>
-//         </div>
-
-//         {/* Drawer Links / Navigation Categories */}
-//         <nav className="mt-6 grid gap-2" aria-label="Mobile primary navigation">
-//           <a href="#" className="flex items-center justify-between border-b border-slate-100 py-3.5 font-medium text-dark-main hover:text-brand-primary" onClick={() => setIsOpen(false)}>
-//             Home
-//           </a>
-//           <a href="#" className="flex items-center justify-between border-b border-slate-100 py-3.5 font-medium text-dark-main hover:text-brand-primary" onClick={() => setIsOpen(false)}>
-//             All Categories
-//           </a>
-//           <a href="#" className="flex items-center justify-between border-b border-slate-100 py-3.5 font-medium text-dark-main hover:text-brand-primary" onClick={() => setIsOpen(false)}>
-//             Hot Offers
-//           </a>
-//           <a href="#" className="flex items-center justify-between border-b border-slate-100 py-3.5 font-medium text-dark-main hover:text-brand-primary" onClick={() => setIsOpen(false)}>
-//             Gift Boxes
-//           </a>
-//           <a href="#" className="flex items-center justify-between border-b border-slate-100 py-3.5 font-medium text-dark-main hover:text-brand-primary" onClick={() => setIsOpen(false)}>
-//             Projects
-//           </a>
-//         </nav>
-
-//         {/* Drawer Footer Actions */}
-//         <div className="mt-auto pt-6 flex flex-col gap-3">
-//           <div className="flex items-center justify-between border-t border-border-gray pt-4 text-sm text-gray-500">
-//             <span>Currency: USD</span>
-//             <span>Ship to: US</span>
-//           </div>
-//         </div>
-//       </aside>
-
-//     </header>
-//   );
-// }
 import { useState } from "react";
-import { useCart } from '../../context/CartContext';
+import { useCart } from "../../context/CartContext";
 import {
   User,
   MessageSquare,
@@ -230,7 +15,6 @@ import {
   Headphones,
   Info,
 } from "lucide-react";
-// ⚡ Link import kiya taake cart page par redirect ho sakein
 import { Link } from "react-router-dom";
 import Logo from "../common/Logo";
 import Container from "../common/Container";
@@ -244,7 +28,24 @@ export default function Navbar() {
   );
   const [isOpen, setIsOpen] = useState(false);
 
-  // Icon ke sath wale main menu items
+  // CUSTOM STATE: Dropdown open/close
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All category");
+
+  // USER INPUT CATEGORIES DATA MATRIX
+  const categoriesList = [
+    "All category",
+    "Clothes and wear",
+    "Automobiles",
+    "Home interiors",
+    "Computer and tech",
+    "Tools, equipments",
+    "Sports and outdoor",
+    "Animal and pets",
+    "Machinery tools",
+  ];
+
+  // Icon and label for main menu items
   const menuItems = [
     { label: "Home", icon: Home, href: "/" },
     { label: "Categories", icon: List, href: "#" },
@@ -255,12 +56,18 @@ export default function Navbar() {
     { label: "About", icon: Info, href: "#" },
   ];
 
-  // Niche wale plain text links
+  // Sub menu items with plain text links
   const subLinks = [
     { label: "User agreement", href: "#" },
     { label: "Partnership", href: "#" },
     { label: "Privacy policy", href: "#" },
   ];
+
+  // CLICK HANDLER: Category Dropdown
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    setIsCategoryDropdownOpen(false); // Menu band ho jaye selecting ke baad
+  };
 
   return (
     <header className="w-full bg-white border-b border-[#DEE2E7] sticky top-0 z-50 select-none">
@@ -270,28 +77,62 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            className="lg:hidden text-[#1C1C1C] p-1 cursor-pointer"
+            className="lg:hidden text-dark-main p-1 cursor-pointer bg-transparent border-none"
             onClick={() => setIsOpen(true)}
           >
             <Menu className="w-6 h-6" />
           </button>
-          <Logo />
+          <Link to="/" className="flex items-center no-underline">
+            <Logo />
+          </Link>
         </div>
 
         {/* CENTER: Search Bar (Desktop Only) */}
         <div
-          className="hidden lg:flex border-2 border-[#0D6EFD] rounded-lg overflow-hidden bg-white"
+          className="hidden lg:flex border-2 border-[#0D6EFD] rounded-lg bg-white relative"
           style={{ height: "44px", width: "100%", maxWidth: "665px" }}
         >
           <input
             type="text"
             placeholder="Search"
-            className="w-full px-4 text-[16px] text-[#1C1C1C] placeholder-gray-400 focus:outline-none"
+            className="w-full px-4 text-[16px] text-dark-main placeholder-gray-400 focus:outline-none border-none bg-transparent"
           />
-          <div className="flex items-center gap-2 px-4 border-l border-gray-200 bg-white cursor-pointer select-none shrink-0 hover:bg-gray-50">
-            <span className="text-[16px] text-[#1C1C1C]">All category</span>
-            <ChevronDown className="w-4 h-4 text-gray-500" />
+
+          {/* INTERACTIVE CUSTOM DROPDOWN BUTTON MODULE CONTAINER */}
+          <div
+            onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+            className="flex items-center gap-2 px-4 border-0 border-l border-solid border-gray-200 bg-white cursor-pointer select-none shrink-0 hover:bg-gray-50 text-left relative min-w-32.5 justify-between"
+          >
+            <span className="text-[16px] text-dark-main truncate max-w-30">
+              {selectedCategory}
+            </span>
+            <ChevronDown
+              className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${isCategoryDropdownOpen ? "rotate-180" : ""}`}
+            />
+
+            {/* ABSOLUTE PORTAL DROPDOWN LAYER VIEW (Render overlay flags list conditionally) */}
+            {isCategoryDropdownOpen && (
+              <div className="absolute top-11 right-0 w-55 bg-white border border-solid border-gray-200 rounded-lg shadow-lg py-1.5 z-50 max-h-70 overflow-y-auto animate-fadeIn box-border">
+                {categoriesList.map((category, idx) => (
+                  <div
+                    key={idx}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCategorySelect(category);
+                    }}
+                    className={`px-4 py-2 text-[15px] cursor-pointer transition-colors whitespace-nowrap truncate ${
+                      selectedCategory === category
+                        ? "bg-blue-50 text-[#0D6EFD] font-medium"
+                        : "text-dark-main hover:bg-gray-100"
+                    }`}
+                  >
+                    {category}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
+
           <button className="bg-[#0D6EFD] hover:bg-blue-700 text-white font-medium text-[16px] px-6 h-full transition-colors shrink-0 border-none cursor-pointer">
             Search
           </button>
@@ -301,19 +142,19 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-7 shrink-0">
           <div className="flex flex-col items-center gap-1 cursor-pointer group">
             <User className="w-5 h-5 text-gray-400 group-hover:text-[#0D6EFD] transition-colors" />
-            <span className="text-[12px] text-gray-400 group-hover:text-[#1C1C1C] transition-colors">
+            <span className="text-[12px] text-gray-400 group-hover:text-dark-main transition-colors">
               Profile
             </span>
           </div>
           <div className="flex flex-col items-center gap-1 cursor-pointer group">
             <MessageSquare className="w-5 h-5 text-gray-400 group-hover:text-[#0D6EFD] transition-colors" />
-            <span className="text-[12px] text-gray-400 group-hover:text-[#1C1C1C] transition-colors">
+            <span className="text-[12px] text-gray-400 group-hover:text-dark-main transition-colors">
               Message
             </span>
           </div>
           <div className="flex flex-col items-center gap-1 cursor-pointer group">
             <Heart className="w-5 h-5 text-gray-400 group-hover:text-[#0D6EFD] transition-colors" />
-            <span className="text-[12px] text-gray-400 group-hover:text-[#1C1C1C] transition-colors">
+            <span className="text-[12px] text-gray-400 group-hover:text-dark-main transition-colors">
               Orders
             </span>
           </div>
@@ -327,12 +168,12 @@ export default function Navbar() {
               <ShoppingCart className="w-5 h-5 text-gray-400 group-hover:text-[#0D6EFD] transition-colors" />
               {/* Counter Badge: Agar cart me items hon tabhi dikhega */}
               {totalItemsInCart > 0 && (
-                <span className="absolute -top-2.5 -right-2.5 bg-red-500 text-white text-[10px] font-bold min-w-[16px] h-4 rounded-full flex items-center justify-center px-1 border border-white box-border animate-scaleIn">
+                <span className="absolute -top-2.5 -right-2.5 bg-red-500 text-white text-[10px] font-bold min-w-4 h-4 rounded-full flex items-center justify-center px-1 border border-white box-border animate-scaleIn">
                   {totalItemsInCart}
                 </span>
               )}
             </div>
-            <span className="text-[12px] text-gray-400 group-hover:text-[#1C1C1C] transition-colors">
+            <span className="text-[12px] text-gray-400 group-hover:text-dark-main transition-colors">
               My cart
             </span>
           </Link>
@@ -341,15 +182,15 @@ export default function Navbar() {
         {/* MOBILE QUICK ACTION ICONS */}
         <div className="flex items-center gap-4 lg:hidden">
           {/* 🛒 MOBILE CART ICON WITH LIVE BADGE CONTROL */}
-          <Link to="/cart" className="text-[#1C1C1C] p-1 relative block">
+          <Link to="/cart" className="text-dark-main p-1 relative block">
             <ShoppingCart className="w-6 h-6" />
             {totalItemsInCart > 0 && (
-              <span className="absolute top-0 right-0 bg-red-500 text-white text-[9px] font-bold min-w-[15px] h-3.5 rounded-full flex items-center justify-center px-1 border border-white box-border">
+              <span className="absolute top-0 right-0 bg-red-500 text-white text-[9px] font-bold min-w-3.75 h-3.5 rounded-full flex items-center justify-center px-1 border border-white box-border">
                 {totalItemsInCart}
               </span>
             )}
           </Link>
-          <button className="text-[#1C1C1C] p-1 bg-transparent border-none">
+          <button className="text-dark-main p-1 bg-transparent border-none">
             <User className="w-6 h-6" />
           </button>
         </div>
@@ -358,14 +199,14 @@ export default function Navbar() {
       {/* MOBILE LOWER SEARCH BAR */}
       <div className="block lg:hidden px-4 pb-3 bg-white">
         <div
-          className="w-full flex items-center bg-[#F7FAFC] border border-gray-200 rounded-lg overflow-hidden px-3"
+          className="w-full flex items-center bg-bg-gray border border-gray-200 rounded-lg overflow-hidden px-3"
           style={{ height: "40px" }}
         >
           <Search className="w-5 h-5 text-gray-400 shrink-0 mr-2" />
           <input
             type="text"
             placeholder="Search"
-            className="w-full bg-transparent text-[14px] text-[#1C1C1C] placeholder-gray-400 focus:outline-none"
+            className="w-full bg-transparent text-[14px] text-dark-main placeholder-gray-400 focus:outline-none"
           />
         </div>
       </div>
@@ -380,9 +221,9 @@ export default function Navbar() {
         aria-label="Mobile navigation"
       >
         {/* Drawer Header */}
-        <div className="bg-[#F7FAFC] p-5 border-b border-gray-200 relative">
+        <div className="bg-bg-gray p-5 border-b border-gray-200 relative">
           <button
-            className="absolute top-4 right-4 text-gray-400 hover:text-[#1C1C1C] cursor-pointer bg-transparent border-none"
+            className="absolute top-4 right-4 text-gray-400 hover:text-dark-main cursor-pointer bg-transparent border-none"
             type="button"
             onClick={() => setIsOpen(false)}
           >
@@ -393,7 +234,7 @@ export default function Navbar() {
             <div className="w-11 h-11 bg-[#DEE2E7] rounded-full flex items-center justify-center text-gray-600">
               <User className="w-6 h-6" />
             </div>
-            <div className="text-[16px] text-[#1C1C1C] font-medium">
+            <div className="text-[16px] text-dark-main font-medium">
               <span className="cursor-pointer hover:text-[#0D6EFD]">
                 Sign in
               </span>
@@ -414,7 +255,7 @@ export default function Navbar() {
                 <a
                   key={idx}
                   href={item.href}
-                  className={`flex items-center gap-4 py-3.5 text-[16px] text-[#1C1C1C] no-underline hover:bg-gray-50 active:bg-gray-100 transition-colors ${
+                  className={`flex items-center gap-4 py-3.5 text-[16px] text-dark-main no-underline hover:bg-gray-50 active:bg-gray-100 transition-colors ${
                     item.label === "English | USD"
                       ? "border-t border-slate-100 mt-2 pt-5"
                       : ""
@@ -437,7 +278,7 @@ export default function Navbar() {
               <a
                 key={idx}
                 href={sub.href}
-                className="text-[16px] text-[#1C1C1C] no-underline font-normal hover:text-[#0D6EFD] transition-colors"
+                className="text-[16px] font-normal no-underline text-dark-main hover:text-[#0D6EFD] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {sub.label}

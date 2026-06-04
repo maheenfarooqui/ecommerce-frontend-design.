@@ -19,18 +19,18 @@ export default function InquirySection() {
   };
 
   return (
-    <div className="w-full bg-[#F7FAFC] pb-8">
+    <div className="w-full bg-bg-gray pb-8">
       <Container>
         {/* Main Banner Box with Blue Gradient Overlay */}
         <div 
-          className="w-full rounded-xl overflow-hidden bg-cover bg-center relative p-6 sm:p-10 flex flex-col lg:flex-row justify-between items-center gap-8 min-h-[420px]"
+          className="w-full rounded-sm overflow-hidden bg-cover bg-center relative p-6 sm:p-10 flex flex-col lg:flex-row justify-between items-center gap-8 min-h-105"
           style={{ 
             backgroundImage: `linear-gradient(95deg, rgba(4, 102, 255, 0.9) 0%, rgba(0, 209, 255, 0.4) 100%), url(${inquiryBg})` 
           }}
         >
           
           {/* 📝 LEFT SIDE: Text Headings */}
-          <div className="text-white max-w-[440px] w-full self-start lg:self-center">
+          <div className="text-white max-w-110 w-full self-start lg:self-center">
             <h2 className="text-[24px] sm:text-[32px] font-bold leading-tight m-0">
               An easy way to send requests to all suppliers
             </h2>
@@ -40,8 +40,8 @@ export default function InquirySection() {
           </div>
 
           {/* 📄 RIGHT SIDE: White inquiry form card */}
-          <div className="bg-white p-5 sm:p-6 rounded-xl shadow-sm w-full max-w-[480px] shrink-0">
-            <h3 className="text-[20px] font-bold text-[#1C1C1C] m-0 mb-5">
+          <div className="bg-white p-5 sm:p-6 rounded-sm shadow-sm w-full max-w-120 shrink-0">
+            <h3 className="text-[20px] font-bold text-dark-main m-0 mb-5">
               Send inquiry to suppliers
             </h3>
 
@@ -79,7 +79,7 @@ export default function InquirySection() {
                 />
                 
                 <select 
-                  className="w-[110px] px-3 py-2.5 border border-gray-300 rounded-lg bg-white text-[15px] focus:outline-none focus:border-[#0D6EFD] cursor-pointer"
+                  className="w-27.5 px-3 py-2.5 border border-gray-300 rounded-lg bg-white text-[15px] focus:outline-none focus:border-[#0D6EFD] cursor-pointer"
                   value={formData.unit}
                   onChange={(e) => setFormData({...formData, unit: e.target.value})}
                 >
