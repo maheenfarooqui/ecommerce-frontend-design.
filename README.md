@@ -1,16 +1,40 @@
-# React + Vite
+# 🛍️ Modern E-Commerce Frontend Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A pixel-perfect, highly responsive, and dynamic E-Commerce frontend platform built using **React 19**, **Tailwind CSS**, and **React Router DOM**. The project features structural layout accuracy matching professional production wireframes (Figma specs), dynamic routing for product details, stateful components, and micro-interactions.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Preview-white?style=for-the-badge&logo=netlify&logoColor=black&labelColor=white&color=black)](https://e-commerce-frontend-design.netlify.app/)
 
-## React Compiler
+## 🚀 Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Dynamic Product Discovery Engine:** Built-in semantic routing (`/products/:id`) that extracts URL parameters using `useParams` to dynamically render distinct target specifications, pricing tiers, and individual product image galleries.
+*   **Figma-Locked UI Layouts:** Clean grid systems and card collections designed strictly to technical specifications (e.g., exact `270px` x `383px` locked cards with precise safe-zones and line-clamps for clean text-wrapping).
+*   **Context API Architecture:** Fully integrated global state management via `CartProvider` to track cart counts and user item additions uniformly across components.
+*   **Smooth Overlay Animations:** Interactive hover overlays featuring clean backdrop blurs (`backdrop-blur-[2px]`) and layout action triggers for seamless user navigation.
+*   **Micro-Interactions:** Scroll-triggered dynamic components powered by modern responsive rendering tools.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack & Architecture
+
+*   **Frontend Library:** React (Functional Components, Custom Hooks)
+*   **Routing System:** React Router DOM (v6+)
+*   **Global State Management:** React Context API (`CartContext`)
+*   **Styling Engine:** Tailwind CSS (Utility-first CSS, custom aspect-ratios, custom color theme injections)
+*   **Iconography:** Lucide React (Pixel-perfect clean vector elements)
+
+---
+
+## 📂 Project Directory Breakdown
+
+```text
+src/
+├── assets/             # Raw static assets, product imagery, and branding vectors
+├── components/
+│   ├── common/         # Reusable structural blocks (Container, ProductGallery, RelatedProducts)
+│   └── layouts/        # Global page layouts (Navbar, Footer)
+├── context/            # Context API states (CartContext handling transactional updates)
+├── pages/              # Application Viewports (Home, ListingPage, ProductDetailsPage, CartPage)
+├── App.jsx             # Core routing manager mapping layout matrices
+└── main.jsx            # Application entry portal
