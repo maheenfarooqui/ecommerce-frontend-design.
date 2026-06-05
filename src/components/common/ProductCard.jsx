@@ -1,8 +1,10 @@
 import { useCart } from "../../context/CartContext";
-import { ShoppingCart, Heart } from "lucide-react";
+import { ShoppingCart, Heart, Eye } from "lucide-react"; // ⚡ Eye icon details ke liye lagaya
+import { useNavigate } from "react-router-dom"; // ⚡ Navigation hook setup kiya bhae
 
 export default function ProductCard({ product, view }) {
   const { addToCart } = useCart();
+  const navigate = useNavigate(); // 🔥 Router Hook Init
 
   const {
     id,
@@ -15,10 +17,17 @@ export default function ProductCard({ product, view }) {
     shipping = "Free Shipping",
   } = product;
 
+  
   if (view === "grid") {
     return (
-      <div className="border border-solid border-[#DEE2E7] rounded-md p-5 flex flex-col justify-between relative group hover:shadow-md transition-all duration-300 h-101.25 w-full sm:max-w-73.5 box-border overflow-hidden bg-white">
-        <button className="absolute bottom-20 right-3 p-2 bg-white border border-solid border-[#DEE2E7] rounded-md text-[#0D6EFD] hover:bg-blue-50 transition-colors cursor-pointer z-10 shadow-xs">
+      <div 
+        onClick={() => navigate(`/products/${id}`)} // 🎯 Matrix Link: Card navigation shortcut
+        className="border border-solid border-[#DEE2E7] rounded-md p-5 flex flex-col justify-between relative group hover:shadow-md transition-all duration-300 h-101.25 w-full sm:max-w-73.5 box-border overflow-hidden bg-white cursor-pointer"
+      >
+        <button 
+          onClick={(e) => e.stopPropagation()} // Click conflict lock
+          className="absolute bottom-20 right-3 p-2 bg-white border border-solid border-[#DEE2E7] rounded-md text-[#0D6EFD] hover:bg-blue-50 transition-colors cursor-pointer z-10 shadow-xs"
+        >
           <Heart className="w-5 h-5 text-[#0D6EFD]" />
         </button>
 
@@ -72,14 +81,28 @@ export default function ProductCard({ product, view }) {
           </p>
         </div>
 
-        {/* ⚡ HOVER OVERLAY ADD TO CART */}
-        <div className="absolute inset-0 bg-white/70 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20 rounded-md">
+        {/* ⚡ HOVER OVERLAY MODULE (Grid Dual Action Frame) */}
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2.5 z-20 rounded-md">
+          
+          {/* 🔥 GRID BUTTON 1: PRODUCT DETAILS BUTTON */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/products/${id}`);
+            }}
+            className="w-35 bg-white border border-solid border-[#0D6EFD] text-[#0D6EFD] hover:bg-blue-50/50 p-2.5 rounded-md shadow-sm transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 text-[13px] font-medium px-4"
+          >
+            <Eye className="w-4 h-4" />
+            <span>View Details</span>
+          </button>
+
+          {/* 🛒 GRID BUTTON 2: ADD TO CART BUTTON */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               addToCart({ id, title, price, img, quantity: 1 });
             }}
-            className="bg-[#0D6EFD] hover:bg-blue-700 text-white p-3 rounded-md shadow-md cursor-pointer border-none flex items-center justify-center gap-2 text-[14px] font-medium px-6 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300"
+            className="w-35 bg-[#0D6EFD] hover:bg-blue-700 text-white p-2.5 rounded-md shadow-md transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 cursor-pointer border-none flex items-center justify-center gap-2 text-[13px] font-medium px-4"
           >
             <ShoppingCart className="w-4 h-4" />
             <span>Add to cart</span>
@@ -89,8 +112,12 @@ export default function ProductCard({ product, view }) {
     );
   }
 
+  
   return (
-    <div className="w-full lg:max-w-230 h-auto lg:h-57.5 bg-white border border-solid border-[#DEE2E7] rounded-md p-5 flex flex-col sm:flex-row items-center gap-6 relative group hover:shadow-xs transition-shadow box-border overflow-hidden">
+    <div 
+      onClick={() => navigate(`/products/${id}`)} // 🎯 Matrix Link: Pure list item navigation
+      className="w-full lg:max-w-230 h-auto lg:h-57.5 bg-white border border-solid border-[#DEE2E7] rounded-md p-5 flex flex-col sm:flex-row items-center gap-6 relative group hover:shadow-xs transition-shadow box-border overflow-hidden cursor-pointer"
+    >
       {/* Left side: Balanced Big Image Frame */}
       <div className="w-full sm:w-52.5 h-47.5 shrink-0 bg-transparent flex items-center justify-center mix-blend-multiply">
         <img
@@ -103,7 +130,10 @@ export default function ProductCard({ product, view }) {
       {/* Right side: Detailed Specs Metadata Pane */}
       <div className="flex-1 flex flex-col justify-start h-full text-left w-full pr-12 relative pt-1">
         {/* Heart/Favorite Icon top right corner inside bounds */}
-        <button className="absolute top-1 right-1 p-2 bg-white border border-solid border-[#DEE2E7] rounded-md text-[#0D6EFD] hover:bg-blue-50 transition-colors cursor-pointer z-10 shadow-xs">
+        <button 
+          onClick={(e) => e.stopPropagation()} // Click bubble freeze
+          className="absolute top-1 right-1 p-2 bg-white border border-solid border-[#DEE2E7] rounded-md text-[#0D6EFD] hover:bg-blue-50 transition-colors cursor-pointer z-10 shadow-xs"
+        >
           <Heart className="w-4 h-4 text-[#0D6EFD]" />
         </button>
 
@@ -124,7 +154,7 @@ export default function ProductCard({ product, view }) {
           )}
         </div>
 
-        {/* Rating stars + Orders + Shipping metadata layout matching screenshot 2 */}
+        {/* Rating stars + Orders + Shipping metadata layout */}
         <div className="flex flex-wrap items-center gap-2 text-[14px] my-2 select-none">
           <div className="flex text-[#FF9017]">
             {"★★★★★".split("").map((star, i) => (
@@ -150,13 +180,19 @@ export default function ProductCard({ product, view }) {
           minim veniam, quis nostrud exercitation.
         </p>
 
-        {/* View Details Anchor Control */}
-        <button className="text-[14px] text-[#0D6EFD] font-medium bg-transparent border-none outline-none mt-3 cursor-pointer self-start p-0 hover:underline">
+        {/* 🔥 LIST VIEW ACTION TEXT CONTROL */}
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate(`/products/${id}`);
+          }}
+          className="text-[14px] text-[#0D6EFD] font-medium bg-transparent border-none outline-none mt-3 cursor-pointer self-start p-0 hover:underline"
+        >
           View details
         </button>
       </div>
 
-      {/* ⚡ CENTRAL ADD TO CART BUTTON ACTION FOR LIST VIEW */}
+      {/* 🛒 CENTRAL ADD TO CART BUTTON ACTION FOR LIST VIEW */}
       <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 hidden sm:block">
         <button
           onClick={(e) => {

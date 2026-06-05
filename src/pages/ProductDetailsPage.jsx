@@ -7,18 +7,15 @@ import RelatedProducts from "../components/common/RelatedProducts";
 import DiscountBanner from "../components/common/DiscountBanner";
 import { Star, MessageSquare, ShoppingBag, Heart, Check, ArrowLeft } from "lucide-react";
 
-// Dynamic items images imports (Aapki convenience ke liye dummy setup)
-import tabletImg from "../assets/iphone.png"; // image.png
-import phoneImg from "../assets/phone.png";  // image1.png
-import watchImg from "../assets/watch.png";  // image2.png
-import laptopImg from "../assets/laptop.png"; // image3.png
+import tabletImg from "../assets/iphone.png"; 
+import phoneImg from "../assets/phone.png";  
+import watchImg from "../assets/watch.png";  
+import laptopImg from "../assets/laptop.png"; 
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // 📦 Complete Products Central Repository Mock 
-  // (Jab aap Context API ya Fetch API use karengi, to ye data wahan se ayega)
   const allProductsDataset = [
     {
       id: 1,
@@ -32,7 +29,7 @@ export default function ProductDetailsPage() {
       type: "Tablets",
       material: "Aluminium Alloy",
       design: "Premium Sleek",
-      images: [tabletImg,tabletImg,tabletImg,tabletImg]
+      images: [tabletImg, tabletImg, tabletImg, tabletImg]
     },
     {
       id: 2,
@@ -46,7 +43,7 @@ export default function ProductDetailsPage() {
       type: "Cameras",
       material: "Composite Plastic",
       design: "Rugged Outdoor",
-      images: [phoneImg,phoneImg,phoneImg,phoneImg]
+      images: [phoneImg, phoneImg, phoneImg, phoneImg]
     },
     {
       id: 3,
@@ -60,7 +57,7 @@ export default function ProductDetailsPage() {
       type: "Wearables",
       material: "Silicon & Metal",
       design: "Sports Minimalist",
-      images: [watchImg, watchImg,watchImg,watchImg]
+      images: [watchImg, watchImg, watchImg, watchImg]
     },
     {
       id: 4,
@@ -74,26 +71,28 @@ export default function ProductDetailsPage() {
       type: "Laptops",
       material: "Recycled Aluminium",
       design: "Pro Professional",
-      images: [laptopImg, laptopImg,laptopImg,laptopImg,]
+      images: [laptopImg, laptopImg, laptopImg, laptopImg]
     }
   ];
 
-  // 🎯 APPROACH ENGINE: ID Match kar ke exact product dhoondna
-  const currentProduct = allProductsDataset.find((product) => product.id === Number(id));
 
-  // 🚨 FALLBACK CONTROL: Agar product na mile to blank screen na aye
-  if (!currentProduct) {
-    return (
-      <div className="w-full min-h-screen flex flex-col items-center justify-center bg-bg-gray gap-4">
-        <h2 className="text-[22px] font-bold text-gray-700">Product details not found!</h2>
-        <button 
-          onClick={() => navigate('/products')}
-          className="flex items-center gap-2 bg-[#0D6EFD] text-white px-4 py-2 rounded-md font-medium cursor-pointer"
-        >
-          <ArrowLeft className="w-4 h-4" /> Back to Products
-        </button>
-      </div>
-    );
+  let currentProduct = allProductsDataset.find((product) => product.id === Number(id));
+if (!currentProduct) {
+    currentProduct = {
+      id: Number(id),
+      title: `Dynamic Premium Super Product Model #${id}`, // Clicked Product Title Mock
+      priceTier1: "120.00",
+      priceTier2: "110.00",
+      priceTier3: "95.00",
+      rating: "8.5",
+      reviews: "18",
+      sold: "240",
+      type: "Tech Equipment",
+      material: "Polycarbonate Matrix",
+      design: "Modern Ergonomic",
+
+      images: [phoneImg, phoneImg, phoneImg, phoneImg] 
+    };
   }
 
   // 📋 Technical Specifications Table Generator Engine
@@ -116,14 +115,14 @@ export default function ProductDetailsPage() {
           {/* Left Block: Dynamic Target Image Sliders Switcher */}
           <ProductGallery images={currentProduct.images} />
 
-          {/* Center Block: Core Specifications Details & Meta Data Description Info */}
+          {/* Center Block: Core Specifications Details */}
           <div className="flex-1 flex flex-col text-left">
             {/* Stock Availability Indicator Badge */}
             <span className="text-[#00B517] text-[15px] font-medium flex items-center gap-1.5 mb-1">
               <Check className="w-4 h-4 stroke-3" /> In stock
             </span>
 
-            {/* Core Header Title - NOW COMPLETELY DYNAMIC */}
+            {/* Core Header Title */}
             <h1 className="text-[20px] lg:text-[24px] font-bold text-dark-main m-0 leading-snug tracking-tight">
               {currentProduct.title}
             </h1>
@@ -146,7 +145,7 @@ export default function ProductDetailsPage() {
               </div>
             </div>
 
-            {/* 🏷️ Tiered Quantity Wholesale Pricing Horizontal Blocks Section */}
+            {/* 🏷️ Tiered Quantity Wholesale Pricing Blocks Section */}
             <div className="w-full bg-[#FFF7EE] p-4 rounded-xl grid grid-cols-3 gap-4 box-border mb-5">
               <div className="flex flex-col">
                 <span className="text-[18px] font-bold text-[#FF9017]">
@@ -168,7 +167,7 @@ export default function ProductDetailsPage() {
               </div>
             </div>
 
-            {/* 📋 Technical Specifications Dynamic Key/Value Description Table View */}
+            {/* 📋 Technical Specifications Table View */}
             <div className="flex flex-col w-full gap-3 text-[15px]">
               {specsTable.map((row, idx) => (
                 <div
@@ -191,7 +190,7 @@ export default function ProductDetailsPage() {
             </button>
           </div>
 
-          {/* Right Block: Supplier Isolation Float Control Card */}
+          {/* Right Block: Supplier Control Card */}
           <SupplierCard />
         </div>
         
